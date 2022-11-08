@@ -1,11 +1,16 @@
 {
   "name": "kingworld-controllers",
   "module": "src/index.ts",
+  "version": "0.0.1",
   "type": "module",
   "devDependencies": {
     "bun-types": "^0.2.0",
     "kingworld": "^0.0.0-experimental.38",
     "reflect-metadata": "^0.1.13"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gaurishhs/kingworld-controllers.git"
   },
   "scripts": {
     "lint": "prettier --write src/**/*.ts"
