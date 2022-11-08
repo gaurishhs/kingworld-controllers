@@ -10,7 +10,7 @@ bun add kingworld-controllers
 ```
 
 ## Usage
-
+- [Demo](https://github.com/gaurishhs/kingworld-controllers/tree/main/demo)
 ```ts
 import { Controller, Get, kwControllers } from 'kingworld-controllers'; 
 
