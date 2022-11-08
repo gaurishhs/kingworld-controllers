@@ -9,6 +9,8 @@ export interface ControllersLoaderOptions {
     container?: Container;
 }
 
+export const SupportedMethodFunctions = ['get', 'post', 'put', 'delete', 'patch', 'head', 'options', 'custom'];
+
 export interface KWCRoute<Schema extends TypedSchema = {}, Path extends string = string> {
     method: HTTPMethod;
     path: string;

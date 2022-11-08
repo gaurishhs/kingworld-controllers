@@ -1,12 +1,13 @@
 {
-  "name": "kingworld-ratelimits",
-  "module": "index.ts",
+  "name": "kingworld-controllers",
+  "module": "src/index.ts",
   "type": "module",
   "devDependencies": {
     "bun-types": "^0.2.0",
-    "kingworld": "^0.0.0-experimental.38"
-  },
-  "dependencies": {
+    "kingworld": "^0.0.0-experimental.38",
     "reflect-metadata": "^0.1.13"
+  },
+  "scripts": {
+    "lint": "prettier --write src/**/*.ts"
   }
 }

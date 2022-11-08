@@ -1,15 +1,37 @@
-# kingworld-controllers
+# KingWorld Controllers
+- This plugin adds decorator and controller-based routing support to kingworld.
 
-To install dependencies:
-
-```bash
-bun install
-```
-
-To run:
+> IMPORTANT!
+> Bun doesn't support decorators yet, so you'll need to upgrade bun by using `bun upgrade --canary`
+## Installation
 
 ```bash
-bun run index.ts
+bun add kingworld-controllers
 ```
 
-This project was created using `bun init` in bun v0.2.2. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+## Usage
+
+```ts
+import { Controller, Get, kwControllers } from 'kingworld-controllers'; 
+
+// /users prefix
+@Controller('/users/')
+class UsersController {
+  @Get()
+  index() {
+    return 'Hello World';
+  }
+}
+
+const app = new KingWorld();
+
+app.use(kwControllers, {
+  controllers: [UsersController],
+});
+
+app.listen(3000);
+```
+
+## License
+
+- This project is licensed under the MIT License - see the LICENSE file for details

@@ -1,6 +1,6 @@
 import type KingWorld from 'kingworld';
 import 'reflect-metadata';
-import { ControllersLoaderOptions, KWCRoute } from './types';
+import { ControllersLoaderOptions, KWCRoute, SupportedMethodFunctions } from './types';
 import { importClassesFromDirectories } from './utils';
 
 export class ControllerManager {
@@ -12,14 +12,16 @@ export class ControllerManager {
         for (const controller of this.getControllers()) {
             const instance = this.getInstance(controller);
 
-            console.log(Reflect.getMetadata('routes', controller));
             const prefix = Reflect.getMetadata('prefix', controller);
             const routes: Array<KWCRoute> = Reflect.getMetadata('routes', controller);
             routes.forEach((route) => {
+                SupportedMethodFunctions.includes(route.method.toLowerCase()) ?
                 // @ts-ignore
-                app[route.method.toLowerCase() as any](`${prefix}${route.path}`, (ctx: any) => Promise.resolve(instance[route.methodName](ctx)), route.hook);
+                app[route.method.toLowerCase() as any](`${prefix}${route.path}`, (ctx: any) => Promise.resolve(instance[route.methodName](ctx)), route.hook)
+                : app.method(route.method, `${prefix}${route.path}`, (ctx: any) => Promise.resolve(instance[route.methodName](ctx)), route.hook);
             })
         }
+        return app;
     }
 
     protected getInstance(identifier: any) {
