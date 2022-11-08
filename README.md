@@ -1,4 +1,4 @@
-# kingworld-ratelimits
+# kingworld-controllers
 
 To install dependencies:
 
