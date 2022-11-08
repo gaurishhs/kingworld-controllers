@@ -1,0 +1,12 @@
+{
+  "name": "kingworld-ratelimits",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "^0.2.0",
+    "kingworld": "^0.0.0-experimental.38"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  }
+}
