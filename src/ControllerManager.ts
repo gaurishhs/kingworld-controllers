@@ -18,7 +18,7 @@ export class ControllerManager {
                 SupportedMethodFunctions.includes(route.method.toLowerCase()) ?
                 // @ts-ignore
                 app[route.method.toLowerCase() as any](`${prefix}${route.path}`, (ctx: any) => Promise.resolve(instance[route.methodName](ctx)), route.hook)
-                : app.method(route.method, `${prefix}${route.path}`, (ctx: any) => Promise.resolve(instance[route.methodName](ctx)), route.hook);
+                : app.route(route.method, `${prefix}${route.path}`, (ctx: any) => Promise.resolve(instance[route.methodName](ctx)), route.hook);
             })
         }
         return app;
